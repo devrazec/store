@@ -122,8 +122,15 @@ npx react-native run-ios
 
 npx react-native run-android
 
+adb install -r android/app/build/outputs/apk/debug/app-debug.apk
+
 # Install Java
 
 java -version 
 source ~/.zshrc  
+
+# Release Android
+
+cd android
+./gradlew assembleRelease
 
