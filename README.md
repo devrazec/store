@@ -96,8 +96,13 @@ To learn more about React Native, take a look at the following resources:
 - [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
 - [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
 
+# Create App
+
+npx @react-native-community/cli init store
 
 cd /Users/user/projects/store
+
+# Run App
 
 npx react-native run-ios
 
@@ -107,3 +112,18 @@ npx react-native run-android
 
 java -version 
 source ~/.zshrc  
+
+# Asset
+mkdir assets
+npx react-native-asset
+
+# Install Packages
+
+npm i -S react-native-navigation
+npm i -S react-native-gesture-handler
+
+npx rnn-link
+
+pod install --project-directory=ios
+
+npm uninstall typescript @types/react @types/react-native
