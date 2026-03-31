@@ -102,6 +102,20 @@ npx @react-native-community/cli init store
 
 cd /Users/user/projects/store
 
+# Remove TypeScript packages
+
+npm uninstall typescript @types/react @types/react-native
+
+delete tsconfig.js
+
+# Install Packages
+
+npm i -S react-native-paper
+npm i -S react-native-safe-area-context
+npm i -S @react-native-vector-icons/material-design-icons
+
+npx pod-install
+
 # Run App
 
 npx react-native run-ios
@@ -113,17 +127,3 @@ npx react-native run-android
 java -version 
 source ~/.zshrc  
 
-# Asset
-mkdir assets
-npx react-native-asset
-
-# Install Packages
-
-npm i -S react-native-navigation
-npm i -S react-native-gesture-handler
-
-npx rnn-link
-
-pod install --project-directory=ios
-
-npm uninstall typescript @types/react @types/react-native

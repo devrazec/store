@@ -1,93 +1,94 @@
-import { 
-    StyleSheet, 
-    View, 
-    ScrollView, 
-    Image, 
-    Text, 
-    TouchableOpacity
-} from 'react-native';
-import { Navigation } from 'react-native-navigation';
+import { StyleSheet, View, ScrollView, Image, Text } from 'react-native';
 import Header from '../components/Header';
-import Footer from '../components/Footer';
 
-const About = (props) => {
-
-    const intro = `Whether attacking the mountain that is the top of your bucket list, or attacking a challenging climbing wall, we have you covered. We constantly upgrade our stock with the newest and bset gear. We pride ourselves on stocking the best and the safest gear. And of course our prices are great!`
-
-    const bio = `CarvedRock started for purely selfish regions. Our founder, John Doe, was an adventurer from the start. Between rafting on the Amazon and climbing Everest he tried to do it all. Experiences were important. Over time he learned finding the best gear was a job of its own. boots from thie store, tents and climbing supplies from another. John wished there was a one stop sho for this. Since he couldnt find what he wanted, then CarvedRock was born`
-
-    const stores = `With 15 locations across 6 States you may find a brick and mortar location nearby. No worries if a store is not close, you can alswy shop on CarvedRock.com. And now with our new mobile app you will even be able to shop directly from your mobile device.`
+const About = () => {
 
     return (
         <View style={styles.container}>
             <ScrollView>
                 <Header />
-                <Image 
-                    style={styles.imageStyle} 
-                    source={require('../assets/shutterstock_440789620.jpg')} 
+                <Image
+                    style={styles.heroImage}
+                    source={require('../assets/shutterstock_440789620.jpg')}
                 />
-                <Text style={styles.aboutTitle}>We Love New Adventures</Text>
-                <Text style={styles.aboutText}>{intro}</Text>
-                <Image 
-                    style={styles.imageStyle} 
-                    source={require('../assets/shutterstock_492010117.jpg')} 
+
+                <View style={styles.section}>
+                    <Text style={styles.sectionTitle}>We Love New Adventures</Text>
+                    <Text style={styles.sectionText}>
+                        Whether attacking the mountain that is the top of your bucket list, or tackling a
+                        challenging climbing wall, we have you covered. We constantly upgrade our stock with
+                        the newest and best gear. We pride ourselves on stocking the safest equipment at
+                        great prices.
+                    </Text>
+                </View>
+
+                <Image
+                    style={styles.sectionImage}
+                    source={require('../assets/shutterstock_492010117.jpg')}
                 />
-                <Text style={styles.aboutTitle}>How We Started</Text>
-                <Text style={styles.aboutText}>{bio}</Text>
-                <Image 
-                    style={styles.imageStyle} 
-                    source={require('../assets/shutterstock_273547007.jpg')} 
+
+                <View style={styles.section}>
+                    <Text style={styles.sectionTitle}>How We Started</Text>
+                    <Text style={styles.sectionText}>
+                        CarvedRock started for purely selfish reasons. Our founder, John Doe, was an
+                        adventurer from the start. Between rafting on the Amazon and climbing Everest he
+                        tried to do it all. Over time he learned that finding the best gear was a job of its
+                        own — boots from one store, tents and climbing supplies from another. John wished
+                        there was a one-stop shop for all of it. Since he couldn't find what he wanted,
+                        CarvedRock was born.
+                    </Text>
+                </View>
+
+                <Image
+                    style={styles.sectionImage}
+                    source={require('../assets/shutterstock_273547007.jpg')}
                 />
-                <Text style={styles.aboutTitle}>Where Can You Find Us</Text>
-                <Text style={styles.aboutText}>{stores}</Text>
-                <TouchableOpacity 
-                    style={styles.aboutButton}
-                    onPress={() => Navigation.pop(props.componentId)}
-                >
-                    <Text style={styles.aboutButtonText}>GO BACK</Text>    
-                </TouchableOpacity>
-                <Footer />
-            </ScrollView>    
+
+                <View style={styles.section}>
+                    <Text style={styles.sectionTitle}>Where Can You Find Us</Text>
+                    <Text style={styles.sectionText}>
+                        With 15 locations across 6 states you may find a brick-and-mortar store nearby.
+                        No worries if a store isn't close — you can always shop on CarvedRock.com. And
+                        now with our new mobile app you can shop directly from your phone, anytime.
+                    </Text>
+                </View>
+            </ScrollView>
         </View>
-    )
-}
+    );
+};
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1
+        flex: 1,
     },
-    imageStyle: {
-        height: 200,
+    heroImage: {
         width: '100%',
-        marginBottom: 20
+        height: 220,
+        resizeMode: 'cover',
     },
-    aboutTitle: {
+    sectionImage: {
+        width: '100%',
+        height: 180,
+        resizeMode: 'cover',
+    },
+    section: {
+        paddingHorizontal: 20,
+        paddingVertical: 24,
+    },
+    sectionTitle: {
         fontFamily: 'OpenSans-Bold',
         fontSize: 20,
-        alignSelf: 'center',
-        color: '#000000',
+        textAlign: 'center',
         textDecorationLine: 'underline',
-        paddingBottom: 5        
-    },
-    aboutText: {
-        fontFamily: 'OpenSans-Regular',
-        fontSize: 16,
-        alignSelf: 'center',
+        marginBottom: 12,
         color: '#000000',
-        marginBottom: 40
     },
-    aboutButton: {
-        width: '50%',
-        backgroundColor: '#000000',
-        alignItems: 'center',
-        alignSelf: 'center',
-        borderRadius: 5,
-        marginBottom: 20
+    sectionText: {
+        fontFamily: 'OpenSans-Regular',
+        fontSize: 15,
+        lineHeight: 24,
+        color: '#333333',
     },
-    aboutButtonText: {
-        fontSize: 25,
-        color: '#FFFFFF'
-    }    
 });
 
 export default About;
